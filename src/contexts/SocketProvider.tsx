@@ -5,9 +5,8 @@ import io from 'socket.io-client'
 import { SocketContextInterface } from '../types'
 export const socketContext = createContext<SocketContextInterface|null>(null)
 
-const SocketProvider = ({ children }:{children:React.ReactNode}) => {
+const SocketProvider = ({ id,children }:{id:string, children:React.ReactNode}) => {
   const [socket, setSocket] = useState()
-  const [id, setId] = useLocalStorage('id','')
   useEffect(() => {
     const newSocket:any = io('http://localhost:8000', { query: { id } })
     setSocket(newSocket)

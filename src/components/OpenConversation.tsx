@@ -19,7 +19,7 @@ const OpenConversation = ({ id }:AppProps) => {
       text,
       id
     })
-    lastMessageRef.current!.scrollIntoView({ smooth: true, block:'start' } as ScrollIntoViewOptions)
+    lastMessageRef.current && lastMessageRef.current!.scrollIntoView({ smooth: true, block:'start' } as ScrollIntoViewOptions)
     setText('')
   }
   return (

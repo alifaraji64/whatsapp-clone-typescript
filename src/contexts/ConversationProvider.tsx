@@ -4,12 +4,11 @@ import { contactContext } from './ContactsProvider'
 import { socketContext } from './SocketProvider'
 import { Conversation, ConversationContextInterface, Message } from '../types';
 export const conversationContext = createContext({} as ConversationContextInterface)
-const ConversationsProvider = ({ children }: { children: React.ReactNode }) => {
+const ConversationsProvider = ({ id,children }: { id:string,children: React.ReactNode }) => {
     const idRef = useRef('')
     const ContactContext = useContext(contactContext)
     const SocketContext = useContext(socketContext)
     const [conversations, setConversations] = useLocalStorage('conversations', [])
-    const [id, setId] = useLocalStorage('id', '')
     const [selectedConversationIndex, setSelectedConversationIndex] = useState(-1)
     const createConversation = (recipients: string[]) => {
         setConversations((prevConversations: Conversation[]) => {
@@ -53,9 +52,6 @@ const ConversationsProvider = ({ children }: { children: React.ReactNode }) => {
 
     }, [SocketContext!.socket, addMessageToConversation]);
 
-    useEffect(()=>{
-        setId(localStorage.getItem('WHATSAPP-CLONE-id'))
-    },[])
 
     const sendMessage = ({ recipients, text, id }: { recipients: [], text: string, id: string }) => {
         SocketContext!.socket.emit('send-message', { recipients, text })

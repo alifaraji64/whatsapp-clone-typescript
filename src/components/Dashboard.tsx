@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { conversationContext } from '../contexts/ConversationProvider'
 import OpenConversation from './OpenConversation'
-import Sidebar from './SideBar'
+import Sidebar from './Sidebar'
 type AppProps = {
     id: string;
 };

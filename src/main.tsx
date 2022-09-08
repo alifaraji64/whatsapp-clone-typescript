@@ -5,15 +5,10 @@ import ContactsProvider from './contexts/ContactsProvider'
 import ConversationsProvider from './contexts/ConversationProvider'
 import SocketProvider from './contexts/SocketProvider'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import useLocalStorage from './hooks/useLocalStorage'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <SocketProvider>
-      <ContactsProvider>
-        <ConversationsProvider>
-          <App />
-        </ConversationsProvider>
-      </ContactsProvider>
-    </SocketProvider>
+    <App />
   </React.StrictMode>
 )
