@@ -1,6 +1,5 @@
 {
   "name": "whatsapp_clone_ts",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
