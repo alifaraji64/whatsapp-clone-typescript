@@ -8,7 +8,7 @@ export const socketContext = createContext<SocketContextInterface|null>(null)
 const SocketProvider = ({ id,children }:{id:string, children:React.ReactNode}) => {
   const [socket, setSocket] = useState()
   useEffect(() => {
-    const newSocket:any = io('', { query: { id }, transports: ['polling'], forceNew: true, secure:true })
+    const newSocket:any = io('', { query: { id }, transports: ['websocket'], forceNew: true, secure:true })
     setSocket(newSocket)
     return () => newSocket.close()
   }, [id])
