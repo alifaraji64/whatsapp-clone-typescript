@@ -8,7 +8,7 @@ export const socketContext = createContext<SocketContextInterface|null>(null)
 const SocketProvider = ({ id,children }:{id:string, children:React.ReactNode}) => {
   const [socket, setSocket] = useState()
   useEffect(() => {
-    const newSocket:any = io('/', { query: { id } })
+    const newSocket:any = io('', { query: { id } })
     setSocket(newSocket)
     return () => newSocket.close()
   }, [id])
