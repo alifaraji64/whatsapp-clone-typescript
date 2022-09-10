@@ -1,6 +1,7 @@
 {
   "name": "whatsapp_clone_ts",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "start": "node server.js",
