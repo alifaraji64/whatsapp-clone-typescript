@@ -8,7 +8,7 @@ export const socketContext = createContext<SocketContextInterface|null>(null)
 const SocketProvider = ({ id,children }:{id:string, children:React.ReactNode}) => {
   const [socket, setSocket] = useState()
   useEffect(() => {
-    const newSocket:any = io('https://bright-pike-blazer.cyclic.app:8080/', { query: { id } })
+    const newSocket:any = io('/', { query: { id } })
     setSocket(newSocket)
     return () => newSocket.close()
   }, [id])
